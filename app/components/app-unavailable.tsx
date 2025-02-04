@@ -14,6 +14,7 @@ const AppUnavailable: FC<IAppUnavailableProps> = ({
 }) => {
   const { t } = useTranslation()
   let message = errMessage
+  console.log(message)
   if (!errMessage)
     message = (isUnknwonReason ? t('app.common.appUnkonwError') : t('app.common.appUnavailable')) as string
 
@@ -22,7 +23,7 @@ const AppUnavailable: FC<IAppUnavailableProps> = ({
       <h1 className='mr-5 h-[50px] leading-[50px] pr-5 text-[24px] font-medium'
         style={{
           borderRight: '1px solid rgba(0,0,0,.3)',
-        }}>{errMessage}</h1>
+        }}>{(errMessage || isUnknwonReason) ? 500 : 404}</h1>
       <div className='text-sm'>{message}</div>
     </div>
   )
