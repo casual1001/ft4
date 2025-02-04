@@ -339,6 +339,7 @@ const TextGeneration = () => {
 
   useEffect(() => {
     if (!hasSetAppConfig) {
+      console.log('not hasSetAppConfig')
       setAppUnavailable(true)
       return
     }
@@ -359,6 +360,7 @@ const TextGeneration = () => {
         })
       }
       catch (e: any) {
+        console.log(e)
         if (e.status === 404) {
           setAppUnavailable(true)
         }
