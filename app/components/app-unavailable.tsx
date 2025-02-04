@@ -15,6 +15,8 @@ const AppUnavailable: FC<IAppUnavailableProps> = ({
   const { t } = useTranslation()
   let message = errMessage
   console.log(message)
+  console.log('isUnknwonReason')
+  console.log(isUnknwonReason)
   if (!errMessage)
     message = (isUnknwonReason ? t('app.common.appUnkonwError') : t('app.common.appUnavailable')) as string
 
