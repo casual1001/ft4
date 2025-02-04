@@ -345,15 +345,21 @@ const TextGeneration = () => {
     }
     (async () => {
       try {
+        console.log('changeLanguage(APP_INFO.default_language)')
         changeLanguage(APP_INFO.default_language)
 
+        console.log('const { user_input_form, file_upload, system_parameters }: any = await fetchAppParams()')
         const { user_input_form, file_upload, system_parameters }: any = await fetchAppParams()
+        console.log('const prompt_variables = userInputsFormToPromptVariables(user_input_form)')
         const prompt_variables = userInputsFormToPromptVariables(user_input_form)
 
+        console.log('setPromptConfig')
         setPromptConfig({
           prompt_template: '',
           prompt_variables,
         } as PromptConfig)
+
+        console.log('setVisionConfig')
         setVisionConfig({
           ...file_upload?.image,
           image_file_size_limit: system_parameters?.image_file_size_limit || 0,
